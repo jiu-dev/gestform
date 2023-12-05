@@ -1,0 +1,56 @@
+<div class="main">
+  <p-messages
+    *ngIf="messages"
+    [(value)]="messages"
+    [enableService]="false"
+  ></p-messages>
+  <form
+    class="flex-container"
+    [formGroup]="numbersForm"
+    (ngSubmit)="onSubmit()"
+  >
+    <div class="flex-item">
+      <div formArrayName="numbers" class="entries">
+        <div
+          *ngFor="let numberControl of numbers.controls; let i = index"
+          [formGroupName]="i"
+        >
+          <p-inputNumber
+            inputId="integeronly"
+            formControlName="number"
+            [useGrouping]="false"
+            class="p-inputtext-sm"
+            placeholder="Enter a number"
+          ></p-inputNumber>
+          <p-button
+            icon="pi pi-times"
+            size="small"
+            [rounded]="true"
+            [text]="true"
+            type="button"
+            severity="danger"
+            (click)="removeNumberInput(i)"
+          ></p-button>
+        </div>
+
+        <p-button
+          label="Ajouter un autre nombre"
+          size="small"
+          icon="pi pi-plus"
+          (click)="addNumberInput()"
+        >
+        </p-button>
+      </div>
+    </div>
+    <div class="middle-item">
+      <button class="convertButton" pButton type="submit">Convertir</button>
+    </div>
+    <div class="flex-item" *ngIf="transformedNumbers.length > 0">
+      <div class="entries">
+        <span class="list-element" *ngFor="let number of transformedNumbers">
+          {{ number }}
+        </span>
+      </div>
+    </div>
+  </form>
+</div>

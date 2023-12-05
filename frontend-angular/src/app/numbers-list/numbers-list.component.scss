@@ -1,0 +1,52 @@
+.main {
+  width: 100%;
+  padding: 2rem;
+}
+.flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.entries {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.flex-item {
+  padding: 1rem;
+  text-align: center;
+  border: solid #d1d5db 1px;
+  border-radius: 14px;
+}
+
+.middle-item {
+  padding: 2rem;
+  display: flex;
+  justify-self: center;
+  justify-items: center;
+  align-items: center;
+}
+
+.list-element {
+  display: block;
+  font-size: 0.875rem;
+  padding: 0.65625rem 0.65625rem;
+}
+
+.convertButton {
+  margin: auto;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .flex-container {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .flex-item {
+    flex-grow: 1;
+    text-align: center;
+  }
+}
